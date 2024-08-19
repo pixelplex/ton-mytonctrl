@@ -53,50 +53,9 @@
 | Debian 10 | OK                                         |
 
 
-## Описание установочных скриптов
-- `toninstaller.sh` - Данный скрипт клонирует исходники `TON` и `mytonctrl` в папки `/usr/src/ton` и `/usr/src/mytonctrl`, компилирует программы из исходников и прописывает их в `/usr/bin/`.
-- `mytoninstaller.py` - Данный скрипт производит настройку валидатора, `mytonctrl` и создание ключей для подключения к валидатору.
-
-## Режимы установки
-Есть два режима установки: `lite` и `full`. Оба они **компилируют** и устанавливают компоненты `TON`. Однако `lite` версия не настраивает и не запускает ноду/валидатор.
-
-## Установка (Ubuntu)
-1. Скачайте и выполните скрипт `install.sh` с нужным вам режимом установки (`<mode>`). В ходе установки у вас будет несколько раз запрошен пароль суперпользователя.
-```sh
-wget https://raw.githubusercontent.com/ton-blockchain/mytonctrl/master/scripts/install.sh
-sudo bash install.sh -m <mode>
-```
-
-2. Готово. Можете пробовать запустить программу `mytonctrl`.
-```sh
-mytonctrl
-```
-
 ## Установка (Debian)
-1. Скачайте и выполните скрипт `install.sh` с нужным вам режимом установки. В ходе установки у вас будет несколько раз запрошен пароль суперпользователя.
-```sh
-wget https://raw.githubusercontent.com/ton-blockchain/mytonctrl/master/scripts/install.sh
-su root -c 'bash install.sh -m <mode>'
-```
 
-2. Готово. Можете пробовать запустить программу `mytonctrl`.
-```sh
-mytonctrl
-```
-
-## Телеметрия
-По умолчанию `mytonctrl` отправляет статистику валидатора на сервер https://toncenter.com
-Это необходимо для выявления аномалий в сети а так же для быстрого реагирования разработчиков.
-Для отключения телеметрии при установке воспользуйтесь флагом `-t`:
-```sh
-sudo bash install.sh -m <mode> -t
-```
-
-Для отключения телеметрии после установки:
-```sh
-MyTonCtrl> set sendTelemetry false
-```
-
+Инструкция по установке доступна в [официальной документации TON](http://docs.ton.org/participate/run-nodes/full-node).
 ## Веб админка
 Для возможности управления нодой/валидатором через браузер нужно установить дополнительный модуль:
 `mytonctrl` -> `installer` -> `enable JR`
@@ -106,13 +65,6 @@ MyTonCtrl> set sendTelemetry false
 
 Готово. Теперь можно идти на сайт https://tonadmin.org и войти используя свои данные.
 git: https://github.com/igroman787/mtc-jsonrpc
-
-## Локальная копия toncenter
-Для того что бы поднять на сервере локальную копию https://toncenter.com нужно установить дополнительный модуль:
-`mytonctrl` -> `installer` -> `enable PT`
-
-Готово. Локальная копия toncenter доступна по адресу `http://<server-ip-address>:8000`
-git: https://github.com/igroman787/pytonv3
 
 ## Полезные ссылки
 1. https://github.com/ton-blockchain/mytonctrl/blob/master/docs/ru/manual-ubuntu.md
